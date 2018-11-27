@@ -11,8 +11,8 @@
     <h1>Bienvenido/a al sistema de registro de denuncias toxicológicas</h1>
     <br>
     <h2>¿Qué desea hacer?</h2>
-    <a href="">Registrarse<a/>
+    <a href="Registrar.aspx">Registrarse<a/>
     <br>
-    <a href="">Hacer una denuncia</a>
+    <a href="Denunciar.aspx">Hacer una denuncia</a>
 </body>
 </html>
