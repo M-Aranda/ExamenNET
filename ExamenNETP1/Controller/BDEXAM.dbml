@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="examenNET" Class="BDEXAMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=MARCELO;Initial Catalog=examenNET;Integrated Security=True" SettingsObjectName="ExamenNETP1.Properties.Settings" SettingsPropertyName="examenNETConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Sexo" Member="Sexos">
+    <Type Name="Sexo">
+      <Column Name="id_sexo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_sexo" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Sexo_Usuario" Member="Usuarios" ThisKey="id_sexo" OtherKey="id_sexo" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="correo_usuario" Type="System.String" DbType="VarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_sexo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_usuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nombres" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ap_paterno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ap_materno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="clave" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
+      <Column Name="fecha_nacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Sexo_Usuario" Member="Sexo" ThisKey="id_sexo" OtherKey="id_sexo" Type="Sexo" IsForeignKey="true" />
+      <Association Name="Tipo_usuario_Usuario" Member="Tipo_usuario" ThisKey="id_tipo_usuario" OtherKey="id_tipo_usuario" Type="Tipo_usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tipo_usuario" Member="Tipo_usuarios">
+    <Type Name="Tipo_usuario">
+      <Column Name="id_tipo_usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_tipo_usuario" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="Tipo_usuario_Usuario" Member="Usuarios" ThisKey="id_tipo_usuario" OtherKey="id_tipo_usuario" Type="Usuario" />
+    </Type>
+  </Table>
+</Database>

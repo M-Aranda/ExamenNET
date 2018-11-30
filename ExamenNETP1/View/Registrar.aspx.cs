@@ -11,13 +11,7 @@ namespace ExamenNETP1.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
-        }
-
-        protected void fechaElegida(object sender, EventArgs e)
-        {
-            txtFechaDeNacimiento.Text =calFNac.SelectedDate.ToString();
         }
     }
 }

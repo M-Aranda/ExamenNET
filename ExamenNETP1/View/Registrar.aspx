@@ -4,48 +4,52 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Registrar</title>
-    <style type="text/css">
-        #form1 {
-            height: 602px;
-        }
-    </style>
-</head>
-<body style="margin-bottom: 416px">
-    <form id="form1" runat="server">
-    <h1 style="width: 136px">Registrar</h1>
+    <title>Registrar usuario</title>
+    <script type="text/javascript" src="../JavaScript/js.js"></script><!-- Ojo con la ruta -->
 
-        <asp:Label ID="lblCorreo" runat="server" Text="Correo:"></asp:Label>
-        <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblSexo" runat="server" Text="Sexo:"></asp:Label>
-        <asp:RadioButtonList ID="rbtSexo" runat="server" Width="242px">
-            <asp:ListItem>Hombre</asp:ListItem>
-            <asp:ListItem>Mujer</asp:ListItem>
-        </asp:RadioButtonList>
-        <br />
-        <asp:Label ID="lblTipoDeUsuario" runat="server" Text="Tipo de usuario:"></asp:Label>
-        <br />
-        <asp:Label ID="lblNombres" runat="server" Text="Nombres:"></asp:Label>
-        <asp:TextBox ID="txtNombres" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblApellidoPaterno" runat="server" Text="Apellido paterno:"></asp:Label>
-        <asp:TextBox ID="txtApellidoPaterno" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblApellidoMaterno" runat="server" Text="Apellido materno:"></asp:Label>
-        <asp:TextBox ID="txtApellidoMaterno" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblClave" runat="server" Text="Clave:"></asp:Label>
-        <asp:TextBox ID="txtClave" textMode="Password" runat="server"></asp:TextBox>
-        <br />
-        <asp:Label ID="lblFechaDeNacimiento" runat="server" Text="Fecha de nacimiento:"></asp:Label>
-        <asp:TextBox ID="txtFechaDeNacimiento" runat="server" Enabled="False"></asp:TextBox>
-        <br />
-        <br />
-        <asp:Calendar ID="calFNac" runat="server" OnSelectionChanged="fechaElegida"></asp:Calendar>
-        <br />
-        <asp:Button ID="btnRegistrar" runat="server" Text="Registrar" Width="104px" />
+    <script>
+            function agregar() {
+                var cor = $("#correo").val();
+                var nom = $("#nombre").val();
+                var aPat = $("#aPaterno").val();
+                var aMat = $("#aMaterno").val();
+                var la_clave = $("#clave").val();
+                //en data, el nombre que esta a la izquierda es el que hay que solicitar
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/RegistrarUsuario.ashx',
+                    data: {
+                        correo_usuario: cor,
+                        nombres: nom,
+                        aPaterno: aPat,
+                        aMaterno: aMat,
+                        clave: la_clave
+                    }
+                })
+            }
+        </script>
+
+
+
+</head>
+<body>
+    <h1>Registro de usuarios</h1>
+    <form id="f1" method="post" action="" runat="server">
+
+        <input type="text" id="correo" name="correo"  placeholder="Correo:" >
+        <br>
+
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre:" >
+        <br>
+        <input type="text" id="aPaterno"  name="aPaterno" placeholder="Apellido paterno:" >
+        <br>
+        <input type="text"  id="aMaterno" name="aMaterno" placeholder="Apellido materno:" >
+        <br>
+        <input type="password" id="clave" name ="clave"  placeholder="Clave" >
+        <br>
+
+        <input type="submit" value="Registrar" onclick="agregar()">
+
     </form>
 
 </body>

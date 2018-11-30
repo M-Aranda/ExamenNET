@@ -43,6 +43,11 @@ PRIMARY KEY(id_tipo_usuario)
 );
 GO
 
+/* Se agrega el tipo de usuario */
+
+INSERT INTO Tipo_usuario VALUES ('Denunciante');
+INSERT INTO Tipo_usuario VALUES ('Funcionario de salud');
+GO
 
 CREATE TABLE Estado_Denuncia(
 id_estado INT IDENTITY (1,1),
@@ -76,10 +81,12 @@ GO
 
 
 CREATE TABLE UsuarioExperto(
+id_usuario_experto INT,
 id_tipo_profesional INT,
 correo_usuario VARCHAR (100),
 FOREIGN KEY (id_tipo_profesional) REFERENCES Tipo_profesional (id_tipo_profesional),
-FOREIGN KEY (correo_usuario) REFERENCES Usuario (correo_usuario)
+FOREIGN KEY (correo_usuario) REFERENCES Usuario (correo_usuario),
+PRIMARY KEY(id_usuario_experto)
 );
 GO
 
@@ -122,6 +129,10 @@ GO
 
 
 /*
+SELECT * FROM Usuario;
+GO
+SELECT * FROM Sexo;
+GO
 USE MASTER
 GO
 DROP DATABASE examenNET

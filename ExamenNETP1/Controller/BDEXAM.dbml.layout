@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BDEXAM">
+  <DataContextMoniker Name="/BDEXAMDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a4dce1d7-5b96-425a-b86a-874889a30e3a" absoluteBounds="0.5, 2, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BDEXAMDataContext/Sexo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d30b3f9-b291-4ac1-aaec-40abb75ff381" absoluteBounds="0.51499999999999968, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" absoluteBounds="3.625, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/BDEXAMDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7bd82c8f-7cad-42c6-ab91-46ab6b06cb4c" absoluteBounds="3.6399999999999997, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.42390055338542); (3.625 : 2.42390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDEXAMDataContext/Sexo/Sexo_Usuario" />
+      <nodes>
+        <classShapeMoniker Id="a4dce1d7-5b96-425a-b86a-874889a30e3a" />
+        <classShapeMoniker Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9a6cfbae-67ae-4889-b566-aafaf6fc9518" absoluteBounds="0.5, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BDEXAMDataContext/Tipo_usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f46ecbe-50a5-4145-885c-fd0d86155a1b" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.09699625651042); (3.625 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDEXAMDataContext/Tipo_usuario/Tipo_usuario_Usuario" />
+      <nodes>
+        <classShapeMoniker Id="9a6cfbae-67ae-4889-b566-aafaf6fc9518" />
+        <classShapeMoniker Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
