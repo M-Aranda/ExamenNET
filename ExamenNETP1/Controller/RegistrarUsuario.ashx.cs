@@ -19,6 +19,12 @@ namespace ExamenNETP1.Controller
             String aPaterno = context.Request.Params["aPaterno"];
             String aMaterno = context.Request.Params["aMaterno"];
             String clave = context.Request.Params["clave"];
+            String fechaNac= context.Request.Params["fechaNacimento"];
+            /*Este no me sirve; entrega datos erroneos
+            DateTime d; 
+            DateTime.TryParseExact(fechaNac, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out d);
+            */
+            DateTime d = Convert.ToDateTime(fechaNac);
 
             //en este handles se hace el insert con linq
             Usuario u = new Usuario();
@@ -27,6 +33,7 @@ namespace ExamenNETP1.Controller
             u.ap_paterno = aPaterno;
             u.ap_materno = aMaterno;
             u.clave = clave;
+            u.fecha_nacimiento = d;
             bd.Usuarios.InsertOnSubmit(u);
             bd.SubmitChanges();
             //context.Response.Redirect("../View/Registrar.aspx");

@@ -14,6 +14,7 @@
                 var aPat = $("#aPaterno").val();
                 var aMat = $("#aMaterno").val();
                 var la_clave = $("#clave").val();
+                var fNac = $("#fechaDeNacimiento").val();
                 //en data, el nombre que esta a la izquierda es el que hay que solicitar
                 $.ajax({
                     type: 'POST',
@@ -23,7 +24,8 @@
                         nombres: nom,
                         aPaterno: aPat,
                         aMaterno: aMat,
-                        clave: la_clave
+                        clave: la_clave,
+                        fechaNacimento: fNac
                     }
                 })
             }
@@ -47,7 +49,8 @@
         <br>
         <input type="password" id="clave" name ="clave"  placeholder="Clave" >
         <br>
-
+        <h3>Fecha de nacimiento: </h3><input type="date" id="fechaDeNacimiento" name="fechaDeNacimiento">
+        <br>
         <input type="submit" value="Registrar" onclick="agregar()">
 
     </form>
