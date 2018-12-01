@@ -10,6 +10,7 @@
     <script>
             function agregar() {
                 var cor = $("#correo").val();
+                var sex =$(".sexo:checked").val();
                 var nom = $("#nombre").val();
                 var aPat = $("#aPaterno").val();
                 var aMat = $("#aMaterno").val();
@@ -22,6 +23,7 @@
                     data: {
                         correo_usuario: cor,
                         nombres: nom,
+                        sexo: sex,
                         aPaterno: aPat,
                         aMaterno: aMat,
                         clave: la_clave,
@@ -30,7 +32,7 @@
                 })
             }
         </script>
-
+    <!--  la fecha de nacimiento no debiese ser null-->
 
 
 </head>
@@ -38,9 +40,12 @@
     <h1>Registro de usuarios</h1>
     <form id="f1" method="post" action="" runat="server">
 
-        <input type="text" id="correo" name="correo"  placeholder="Correo:" >
+        <input type="text" id="correo" name="correo"  placeholder="Correo:" required>
         <br>
-
+        Masculino <input type="radio" class="sexo" name="sexo" value="Hombre">
+        <br>
+        Femenino <input type="radio" class="sexo" name="sexo" value="Mujer">
+        <br>
         <input type="text" id="nombre" name="nombre" placeholder="Nombre:" >
         <br>
         <input type="text" id="aPaterno"  name="aPaterno" placeholder="Apellido paterno:" >
