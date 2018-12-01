@@ -46,7 +46,7 @@ GO
 /* Se agrega el tipo de usuario */
 
 INSERT INTO Tipo_usuario VALUES ('Denunciante');
-INSERT INTO Tipo_usuario VALUES ('Funcionario de salud');
+INSERT INTO Tipo_usuario VALUES ('Profesional');
 GO
 
 CREATE TABLE Estado_Denuncia(

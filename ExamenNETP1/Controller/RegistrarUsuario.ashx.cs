@@ -16,6 +16,7 @@ namespace ExamenNETP1.Controller
         {
             String correo = context.Request.Params["correo_usuario"];
             String sex = context.Request.Params["sexo"];
+            String tip = context.Request.Params["tipo_usuario"];
             String nom = context.Request.Params["nombres"];
             String aPaterno = context.Request.Params["aPaterno"];
             String aMaterno = context.Request.Params["aMaterno"];
@@ -28,11 +29,13 @@ namespace ExamenNETP1.Controller
             DateTime d = Convert.ToDateTime(fechaNac);
 
             Sexo s=bd.Sexos.Where(se => se.nombre_sexo == sex).FirstOrDefault();
+            Tipo_usuario t = bd.Tipo_usuarios.Where(ti => ti.nombre_tipo_usuario == tip).FirstOrDefault();
 
             //en este handles se hace el insert con linq
             Usuario u = new Usuario();
             u.correo_usuario = correo;
             u.Sexo = s;
+            u.Tipo_usuario = t;
             u.nombres = nom;
             u.ap_paterno = aPaterno;
             u.ap_materno = aMaterno;

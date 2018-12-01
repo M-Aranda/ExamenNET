@@ -10,7 +10,8 @@
     <script>
             function agregar() {
                 var cor = $("#correo").val();
-                var sex =$(".sexo:checked").val();
+                var sex = $(".sexo:checked").val();
+                var tipo = $(".tipo:checked").val();
                 var nom = $("#nombre").val();
                 var aPat = $("#aPaterno").val();
                 var aMat = $("#aMaterno").val();
@@ -23,6 +24,7 @@
                     data: {
                         correo_usuario: cor,
                         nombres: nom,
+                        tipo_usuario: tipo,
                         sexo: sex,
                         aPaterno: aPat,
                         aMaterno: aMat,
@@ -42,9 +44,17 @@
 
         <input type="text" id="correo" name="correo"  placeholder="Correo:" required>
         <br>
+        <h4>Sexo: </h4>
+        <br>
         Masculino <input type="radio" class="sexo" name="sexo" value="Hombre">
         <br>
         Femenino <input type="radio" class="sexo" name="sexo" value="Mujer">
+        <br>
+        <h4>Tipo de usuario: </h4>
+        <br>
+        Denunciante <input type="radio" class="tipo" name="tipo" value="Denunciante">
+        <br>
+        Profesional <input type="radio" class="tipo" name="tipo" value="Profesional">
         <br>
         <input type="text" id="nombre" name="nombre" placeholder="Nombre:" >
         <br>
