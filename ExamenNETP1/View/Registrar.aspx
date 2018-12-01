@@ -59,17 +59,18 @@
         <br>
         Profesional <input type="radio" class="tipo" name="tipo" value="Profesional">
         <br>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre:" >
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre:" required >
         <br>
-        <input type="text" id="aPaterno"  name="aPaterno" placeholder="Apellido paterno:" >
+        <input type="text" id="aPaterno"  name="aPaterno" placeholder="Apellido paterno:" required >
         <br>
-        <input type="text"  id="aMaterno" name="aMaterno" placeholder="Apellido materno:" >
+        <input type="text"  id="aMaterno" name="aMaterno" placeholder="Apellido materno:" required>
         <br>
-        <input type="password" id="clave" name ="clave"  placeholder="Clave" >
+        <input type="password" id="clave" name ="clave"  placeholder="Clave" required>
         <br>
         <h3>Fecha de nacimiento: </h3><input type="date" id="fechaDeNacimiento" name="fechaDeNacimiento">
         <br>
         <input type="submit" value="Registrar" onclick="agregar()">
+        
     <br>
     <a href="Default.aspx">Volver</a>
 

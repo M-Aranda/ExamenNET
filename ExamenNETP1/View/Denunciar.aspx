@@ -54,6 +54,7 @@
                int id = i.id_comuna;
                String nom=i.nombre_comuna;
                listadoDeComunas.Add(c);
+               //el numero de seguimiento se podria dar con sesiones y enviando el el correo a un handler
            }*/
         int numeroDeSeguimiento = 0;
       /* hay un problema con este try catch try
