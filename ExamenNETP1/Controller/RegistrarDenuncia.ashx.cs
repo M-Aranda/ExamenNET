@@ -36,8 +36,7 @@ namespace ExamenNETP1.Controller
             bd.Denuncias.InsertOnSubmit(d);
             bd.SubmitChanges();
 
-            int numeroDeSeguimiento = bd.Denuncias.Max(x => x.id_denuncia);
-            context.Session["numeroDeSeguimiento"] = numeroDeSeguimiento;
+
 
             //context.Response.Redirect("../View/Denunciar.aspx");
         }

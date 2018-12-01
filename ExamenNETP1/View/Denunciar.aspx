@@ -13,8 +13,10 @@
             function prepararDenuncia() {
                 var cor = $("#correo").val();
                 var com = $("#comuna option:selected").val();
-                var desc = $("#descripcion").val();
- 
+                //var desc = $("#descripcion").val();
+               var desc = $('textarea#descripcion').val();
+                 var numSeg = $("#num").val();
+
                 //en data, el nombre que esta a la izquierda es el que hay que solicitar
                 $.ajax({
                     type: 'POST',
@@ -28,7 +30,12 @@
                 document.getElementById('correo').value = '';
                 document.getElementById('descripcion').value = '';
                 alert("Hecho");
-            }
+                alert("El numero de seguimiento es "+numSeg);
+        }
+
+
+
+
         </script>
 
 </head>
@@ -38,18 +45,31 @@
     <input type="text" id="correo" name="correo" placeholder="Correo de usuario:" required>
     <br>
     <%  BDEXAMDataContext bd = new BDEXAMDataContext();
-       // List<ExamenNETP1.Model.Comuna> listadoDeComunas= new List<ExamenNETP1.Model.Comuna>();
+        // List<ExamenNETP1.Model.Comuna> listadoDeComunas= new List<ExamenNETP1.Model.Comuna>();
         List<ExamenNETP1.Controller.Comuna> listadoDeComunas =bd.Comunas.Select(x => x).ToList();
-     /*   ExamenNETP1.Model.Comuna c;
-        foreach (ExamenNETP1.Controller.Comuna i in listadoDeComunas2)
+        /*   ExamenNETP1.Model.Comuna c;
+           foreach (ExamenNETP1.Controller.Comuna i in listadoDeComunas2)
+           {
+               c = new ExamenNETP1.Model.Comuna();
+               int id = i.id_comuna;
+               String nom=i.nombre_comuna;
+               listadoDeComunas.Add(c);
+           }*/
+        int numeroDeSeguimiento = 0;
+      /* hay un problema con este try catch try
+        {*/
+            numeroDeSeguimiento = bd.Denuncias.Max(x => x.id_denuncia);
+            numeroDeSeguimiento += 1;
+       /* }
+        catch (Exception)
         {
-            c = new ExamenNETP1.Model.Comuna();
-            int id = i.id_comuna;
-            String nom=i.nombre_comuna;
-            listadoDeComunas.Add(c);
+
+            numeroDeSeguimiento = 1;
         }*/
+
         %>
 
+    <input type="hidden" id="num" name="num" value="<%=numeroDeSeguimiento%>"">
     <select id="comuna" name="comuna">
     <%foreach (ExamenNETP1.Controller.Comuna com in listadoDeComunas)
         {%>
@@ -60,11 +80,13 @@
     
     </select>
     <br>
-    <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion de caso:" required>
-    <br>
+    <h3>Descripción del caso</h3>
+    <textarea rows="10" cols="50" id="descripcion" name="descripcion"></textarea>
+    <!-- <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion de caso:" required> -->
+    <br />
     <input type="submit" value="Denunciar" onclick="prepararDenuncia()">
+    <br>
 
-
-
+    <a href="Default.aspx">Volver</a>
 </body>
 </html>

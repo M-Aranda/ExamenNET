@@ -107,6 +107,9 @@ PRIMARY KEY (id_denuncia)
 );
 GO
 
+
+
+
 CREATE TABLE Detalle_Denuncia(
 correlativo_interno INT IDENTITY (1,1),
 id_denuncia INT,
@@ -380,5 +383,4 @@ USE MASTER
 GO
 DROP DATABASE examenNET
 GO
-
 */

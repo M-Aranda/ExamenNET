@@ -32,6 +32,12 @@
                         fechaNacimento: fNac
                     }
                 })
+                alert("Usuario registrado");
+                document.getElementById('correo').value = '';
+                document.getElementById('nombre').value = '';
+                document.getElementById('aPaterno').value = '';
+                document.getElementById('aMaterno').value = '';
+                document.getElementById('clave').value = '';
             }
         </script>
     <!--  la fecha de nacimiento no debiese ser null-->
@@ -40,19 +46,16 @@
 </head>
 <body>
     <h1>Registro de usuarios</h1>
-    <form id="f1" method="post" action="" runat="server">
+    
 
         <input type="text" id="correo" name="correo"  placeholder="Correo:" required>
         <br>
         <h4>Sexo: </h4>
-        <br>
-        Masculino <input type="radio" class="sexo" name="sexo" value="Hombre">
+        Masculino <input type="radio" class="sexo" name="sexo" value="Hombre" checked>
         <br>
         Femenino <input type="radio" class="sexo" name="sexo" value="Mujer">
-        <br>
         <h4>Tipo de usuario: </h4>
-        <br>
-        Denunciante <input type="radio" class="tipo" name="tipo" value="Denunciante">
+        Denunciante <input type="radio" class="tipo" name="tipo" value="Denunciante" checked>
         <br>
         Profesional <input type="radio" class="tipo" name="tipo" value="Profesional">
         <br>
@@ -67,8 +70,8 @@
         <h3>Fecha de nacimiento: </h3><input type="date" id="fechaDeNacimiento" name="fechaDeNacimiento">
         <br>
         <input type="submit" value="Registrar" onclick="agregar()">
-
-    </form>
+    <br>
+    <a href="Default.aspx">Volver</a>
 
 </body>
 </html>
