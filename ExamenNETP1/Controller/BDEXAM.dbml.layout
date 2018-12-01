@@ -8,13 +8,13 @@
         <elementListCompartment Id="4d30b3f9-b291-4ac1-aaec-40abb75ff381" absoluteBounds="0.51499999999999968, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" absoluteBounds="3.625, 0.5, 2, 2.3478011067708335">
+    <classShape Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" absoluteBounds="3.25, 0.5, 2, 2.3478011067708335">
       <DataClassMoniker Name="/BDEXAMDataContext/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="7bd82c8f-7cad-42c6-ab91-46ab6b06cb4c" absoluteBounds="3.6399999999999997, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7bd82c8f-7cad-42c6-ab91-46ab6b06cb4c" absoluteBounds="3.2649999999999997, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 2.42390055338542); (3.625 : 2.42390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 2.42390055338542); (3.25 : 2.42390055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/BDEXAMDataContext/Sexo/Sexo_Usuario" />
       <nodes>
         <classShapeMoniker Id="a4dce1d7-5b96-425a-b86a-874889a30e3a" />
@@ -27,11 +27,50 @@
         <elementListCompartment Id="5f46ecbe-50a5-4145-885c-fd0d86155a1b" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 1.09699625651042); (3.625 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 1.09699625651042); (3.25 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/BDEXAMDataContext/Tipo_usuario/Tipo_usuario_Usuario" />
       <nodes>
         <classShapeMoniker Id="9a6cfbae-67ae-4889-b566-aafaf6fc9518" />
         <classShapeMoniker Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="494dc9ce-d35c-41a2-b93a-0a3df70de7c2" absoluteBounds="5.875, 0.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/BDEXAMDataContext/Denuncia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd5a8890-2b1b-433b-8010-f906608bca3b" absoluteBounds="5.89, 1.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 1.70274983723958); (5.875 : 1.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDEXAMDataContext/Usuario/Usuario_Denuncia" />
+      <nodes>
+        <classShapeMoniker Id="079a4c4e-d927-4687-bd48-aa16bd7e09f0" />
+        <classShapeMoniker Id="494dc9ce-d35c-41a2-b93a-0a3df70de7c2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1e47e773-50f8-4ad5-8152-173e4494f5f0" absoluteBounds="6.625, 3.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BDEXAMDataContext/Estado_Denuncia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="35c1f850-43e7-40a3-bdf2-168100ebff1e" absoluteBounds="6.64, 4.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.25 : 3.625); (7.25 : 2.78049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDEXAMDataContext/Estado_Denuncia/Estado_Denuncia_Denuncia" />
+      <nodes>
+        <classShapeMoniker Id="1e47e773-50f8-4ad5-8152-173e4494f5f0" />
+        <classShapeMoniker Id="494dc9ce-d35c-41a2-b93a-0a3df70de7c2" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9186a008-ce7b-4b3b-bdfe-a7784b219c61" absoluteBounds="3.75, 3.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BDEXAMDataContext/Comuna" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59964fbb-9701-4ab1-a76c-1621d8f3ae26" absoluteBounds="3.7649999999999997, 3.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 3.53125); (6.21875 : 3.53125); (6.21875 : 2.78049967447917)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BDEXAMDataContext/Comuna/Comuna_Denuncia" />
+      <nodes>
+        <classShapeMoniker Id="9186a008-ce7b-4b3b-bdfe-a7784b219c61" />
+        <classShapeMoniker Id="494dc9ce-d35c-41a2-b93a-0a3df70de7c2" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

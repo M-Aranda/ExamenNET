@@ -17,6 +17,7 @@
       <Column Name="ap_materno" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="clave" Type="System.String" DbType="VarChar(32)" CanBeNull="true" />
       <Column Name="fecha_nacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Usuario_Denuncia" Member="Denuncias" ThisKey="correo_usuario" OtherKey="correo_usuario" Type="Denuncia" />
       <Association Name="Sexo_Usuario" Member="Sexo" ThisKey="id_sexo" OtherKey="id_sexo" Type="Sexo" IsForeignKey="true" />
       <Association Name="Tipo_usuario_Usuario" Member="Tipo_usuario" ThisKey="id_tipo_usuario" OtherKey="id_tipo_usuario" Type="Tipo_usuario" IsForeignKey="true" />
     </Type>
@@ -26,6 +27,34 @@
       <Column Name="id_tipo_usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nombre_tipo_usuario" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Association Name="Tipo_usuario_Usuario" Member="Usuarios" ThisKey="id_tipo_usuario" OtherKey="id_tipo_usuario" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Denuncia" Member="Denuncias">
+    <Type Name="Denuncia">
+      <Column Name="id_denuncia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="correo_usuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="id_comuna" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_estado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_ingreso" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="descripcion_caso" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="fecha_cierre" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Usuario_Denuncia" Member="Usuario" ThisKey="correo_usuario" OtherKey="correo_usuario" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Estado_Denuncia_Denuncia" Member="Estado_Denuncia" ThisKey="id_estado" OtherKey="id_estado" Type="Estado_Denuncia" IsForeignKey="true" />
+      <Association Name="Comuna_Denuncia" Member="Comuna" ThisKey="id_comuna" OtherKey="id_comuna" Type="Comuna" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Estado_Denuncia" Member="Estado_Denuncias">
+    <Type Name="Estado_Denuncia">
+      <Column Name="id_estado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_estado" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Estado_Denuncia_Denuncia" Member="Denuncias" ThisKey="id_estado" OtherKey="id_estado" Type="Denuncia" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Comuna" Member="Comunas">
+    <Type Name="Comuna">
+      <Column Name="id_comuna" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre_comuna" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="Comuna_Denuncia" Member="Denuncias" ThisKey="id_comuna" OtherKey="id_comuna" Type="Denuncia" />
     </Type>
   </Table>
 </Database>

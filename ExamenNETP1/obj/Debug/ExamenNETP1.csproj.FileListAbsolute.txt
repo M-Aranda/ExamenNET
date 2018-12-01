@@ -110,3 +110,4 @@ C:\Users\Marce\Desktop\ExamenNET\ExamenNETP1\obj\Debug\ExamenNETP1.csproj.CoreCo
 C:\Users\Marce\Desktop\ExamenNET\ExamenNETP1\obj\Debug\ExamenNETP1.csproj.CopyComplete
 C:\Users\Marce\Desktop\ExamenNET\ExamenNETP1\obj\Debug\ExamenNETP1.dll
 C:\Users\Marce\Desktop\ExamenNET\ExamenNETP1\obj\Debug\ExamenNETP1.pdb
+C:\Users\Marce\Desktop\ExamenNET\ExamenNETP1\bin\System.Data.Linq.dll
