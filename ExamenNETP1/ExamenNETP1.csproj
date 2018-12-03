@@ -82,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDEXAM.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\GenerarNumeroDeSeguimiento.ashx.cs">
+      <DependentUpon>GenerarNumeroDeSeguimiento.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Controller\RegistrarDenuncia.ashx.cs">
       <DependentUpon>RegistrarDenuncia.ashx</DependentUpon>
     </Compile>
@@ -133,6 +136,7 @@
     <None Include="Controller\BDEXAM.dbml.layout">
       <DependentUpon>BDEXAM.dbml</DependentUpon>
     </None>
+    <Content Include="Controller\GenerarNumeroDeSeguimiento.ashx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

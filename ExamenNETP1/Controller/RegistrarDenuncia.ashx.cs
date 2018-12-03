@@ -37,13 +37,14 @@ namespace ExamenNETP1.Controller
             {
                 bd.Denuncias.InsertOnSubmit(d);
                 bd.SubmitChanges();
+
+               /* Denuncia den = bd.Denuncias.OrderByDescending(de => de.id_denuncia).FirstOrDefault();
+                context.Session["numeroDeSeguimiento"] = den.id_denuncia;*/
             }
 
 
+            context.Response.Redirect("../View/Denunciar.aspx");
 
-
-
-            //context.Response.Redirect("../View/Denunciar.aspx");
         }
 
         public bool IsReusable {

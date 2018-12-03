@@ -80,6 +80,7 @@ PRIMARY KEY(correo_usuario)
 GO
 
 
+
 CREATE TABLE UsuarioExperto(
 id_usuario_experto INT,
 id_tipo_profesional INT,
@@ -370,7 +371,10 @@ INSERT INTO Comuna VALUES ('Timaukel');
 INSERT INTO Comuna VALUES ('Natales');
 GO
 
+
 /*
+
+SELECT MAX(id_denuncia) FROM denuncia;
 SELECT * FROM Usuario;
 GO
 SELECT * FROM Sexo;

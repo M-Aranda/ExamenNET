@@ -15,7 +15,7 @@
                 var com = $("#comuna option:selected").val();
                 //var desc = $("#descripcion").val();
                var desc = $('textarea#descripcion').val();
-                 var numSeg = $("#num").val();
+                
 
                 //en data, el nombre que esta a la izquierda es el que hay que solicitar
                 $.ajax({
@@ -33,44 +33,32 @@
                 if (cor === "" || cor == null) {
                     alert("Debe ingresar un correo ya registrado.");
                 }
-
-             
+                window.location = "../Controller/GenerarNumeroDeSeguimiento.ashx";//esta linea la pongo para generar el numero de seguimiento
         }
 
-
-
-
+       /* function redirigirAHandlerDeNDeSeguimiento(){
+                var cor = $("#correo").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '../Controller/GenerarNumeroDeSeguimiento.ashx',
+                    data: {
+                        correo: cor
+                    }
+                })
+            window.location = "../Controller/GenerarNumeroDeSeguimiento.ashx";
+        }
+        */
         </script>
-
+    
 </head>
 <body>
     <h2>Denunciar</h2>
     <br>
+   
     <input type="text" id="correo" name="correo" placeholder="Correo de usuario:" required>
     <br>
     <%  BDEXAMDataContext bd = new BDEXAMDataContext();
-        // List<ExamenNETP1.Model.Comuna> listadoDeComunas= new List<ExamenNETP1.Model.Comuna>();
         List<ExamenNETP1.Controller.Comuna> listadoDeComunas =bd.Comunas.Select(x => x).ToList();
-        /*   ExamenNETP1.Model.Comuna c;
-           foreach (ExamenNETP1.Controller.Comuna i in listadoDeComunas2)
-           {
-               c = new ExamenNETP1.Model.Comuna();
-               int id = i.id_comuna;
-               String nom=i.nombre_comuna;
-               listadoDeComunas.Add(c);
-               //el numero de seguimiento se podria dar con sesiones y enviando el el correo a un handler
-           }*/
-        //int numeroDeSeguimiento = 0;
-      /* hay un problema con este try catch try
-        {*/
-            //numeroDeSeguimiento = bd.Denuncias.Max(x => x.id_denuncia);
-            //numeroDeSeguimiento += 1;
-       /* }
-        catch (Exception)
-        {
-
-            numeroDeSeguimiento = 1;
-        }*/
 
         %>
 
@@ -89,8 +77,20 @@
     <textarea rows="10" cols="50" id="descripcion" name="descripcion"></textarea>
     <!-- <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion de caso:" required> -->
     <br />
-    <input type="submit" value="Denunciar" onclick="prepararDenuncia()">
+    <input type="submit" value="Denunciar" onclick="prepararDenuncia();redirigirAHandlerDeNDeSeguimiento()"><!-- ;redirigirAHandlerDeNDeSeguimiento() -->
     <br>
+   
+
+    <%
+       
+        if (Context.Session["numeroDeSeguimiento"] != null)
+        {        
+            %>
+            <h3>Su número de seguimiento es: <%=Context.Session["numeroDeSeguimiento"]%></h3>
+    <%
+            Context.Session.Remove("numeroDeSeguimiento");
+        }
+        %>
 
     <a href="Default.aspx">Volver</a>
 </body>
