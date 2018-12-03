@@ -26,6 +26,8 @@ namespace ExamenNETP1.Controller
             DateTime d; 
             DateTime.TryParseExact(fechaNac, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out d);
             */
+
+
             DateTime d = Convert.ToDateTime(fechaNac);
 
             Sexo s=bd.Sexos.Where(se => se.nombre_sexo == sex).FirstOrDefault();
@@ -41,8 +43,17 @@ namespace ExamenNETP1.Controller
             u.ap_materno = aMaterno;
             u.clave = clave;
             u.fecha_nacimiento = d;
-            bd.Usuarios.InsertOnSubmit(u);
-            bd.SubmitChanges();
+
+
+            Usuario posibleUsuarioExistente=bd.Usuarios.Where(us => us.correo_usuario == correo).FirstOrDefault();
+            //por alguna razon parece que linq tira los NULL como si fueran strings o strings vacias
+            if ((correo != null) & (correo!="") & (posibleUsuarioExistente==null))
+            {
+                bd.Usuarios.InsertOnSubmit(u);
+                bd.SubmitChanges();
+
+            }
+
             //context.Response.Redirect("../View/Registrar.aspx");
 
         }

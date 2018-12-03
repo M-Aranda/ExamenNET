@@ -32,12 +32,19 @@
                         fechaNacimento: fNac
                     }
                 })
-                alert("Usuario registrado");
+
+                alert("Solicitud procesada");
                 document.getElementById('correo').value = '';
                 document.getElementById('nombre').value = '';
                 document.getElementById('aPaterno').value = '';
                 document.getElementById('aMaterno').value = '';
                 document.getElementById('clave').value = '';
+
+                if (cor === "" || cor == null) {
+                    alert("Debe colocar un correo, y además este no puede estar ya registrado.")
+                } 
+                
+
             }
         </script>
     <!--  la fecha de nacimiento no debiese ser null-->

@@ -33,8 +33,13 @@ namespace ExamenNETP1.Controller
             d.fecha_cierre = DateTime.Now.AddDays(30);
 
 
-            bd.Denuncias.InsertOnSubmit(d);
-            bd.SubmitChanges();
+            if (u != null)
+            {
+                bd.Denuncias.InsertOnSubmit(d);
+                bd.SubmitChanges();
+            }
+
+
 
 
 

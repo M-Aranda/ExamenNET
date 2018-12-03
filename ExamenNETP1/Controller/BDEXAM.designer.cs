@@ -30,24 +30,24 @@ namespace ExamenNETP1.Controller
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertSexo(Sexo instance);
-    partial void UpdateSexo(Sexo instance);
-    partial void DeleteSexo(Sexo instance);
     partial void InsertUsuario(Usuario instance);
     partial void UpdateUsuario(Usuario instance);
     partial void DeleteUsuario(Usuario instance);
+    partial void InsertSexo(Sexo instance);
+    partial void UpdateSexo(Sexo instance);
+    partial void DeleteSexo(Sexo instance);
     partial void InsertTipo_usuario(Tipo_usuario instance);
     partial void UpdateTipo_usuario(Tipo_usuario instance);
     partial void DeleteTipo_usuario(Tipo_usuario instance);
     partial void InsertDenuncia(Denuncia instance);
     partial void UpdateDenuncia(Denuncia instance);
     partial void DeleteDenuncia(Denuncia instance);
-    partial void InsertEstado_Denuncia(Estado_Denuncia instance);
-    partial void UpdateEstado_Denuncia(Estado_Denuncia instance);
-    partial void DeleteEstado_Denuncia(Estado_Denuncia instance);
     partial void InsertComuna(Comuna instance);
     partial void UpdateComuna(Comuna instance);
     partial void DeleteComuna(Comuna instance);
+    partial void InsertEstado_Denuncia(Estado_Denuncia instance);
+    partial void UpdateEstado_Denuncia(Estado_Denuncia instance);
+    partial void DeleteEstado_Denuncia(Estado_Denuncia instance);
     #endregion
 		
 		public BDEXAMDataContext() : 
@@ -80,19 +80,19 @@ namespace ExamenNETP1.Controller
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Sexo> Sexos
-		{
-			get
-			{
-				return this.GetTable<Sexo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Usuario> Usuarios
 		{
 			get
 			{
 				return this.GetTable<Usuario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sexo> Sexos
+		{
+			get
+			{
+				return this.GetTable<Sexo>();
 			}
 		}
 		
@@ -112,14 +112,6 @@ namespace ExamenNETP1.Controller
 			}
 		}
 		
-		public System.Data.Linq.Table<Estado_Denuncia> Estado_Denuncias
-		{
-			get
-			{
-				return this.GetTable<Estado_Denuncia>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Comuna> Comunas
 		{
 			get
@@ -127,119 +119,13 @@ namespace ExamenNETP1.Controller
 				return this.GetTable<Comuna>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sexo")]
-	public partial class Sexo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_sexo;
-		
-		private string _nombre_sexo;
-		
-		private EntitySet<Usuario> _Usuarios;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_sexoChanging(int value);
-    partial void Onid_sexoChanged();
-    partial void Onnombre_sexoChanging(string value);
-    partial void Onnombre_sexoChanged();
-    #endregion
-		
-		public Sexo()
-		{
-			this._Usuarios = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuarios), new Action<Usuario>(this.detach_Usuarios));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sexo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_sexo
+		public System.Data.Linq.Table<Estado_Denuncia> Estado_Denuncias
 		{
 			get
 			{
-				return this._id_sexo;
+				return this.GetTable<Estado_Denuncia>();
 			}
-			set
-			{
-				if ((this._id_sexo != value))
-				{
-					this.Onid_sexoChanging(value);
-					this.SendPropertyChanging();
-					this._id_sexo = value;
-					this.SendPropertyChanged("id_sexo");
-					this.Onid_sexoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_sexo", DbType="VarChar(100)")]
-		public string nombre_sexo
-		{
-			get
-			{
-				return this._nombre_sexo;
-			}
-			set
-			{
-				if ((this._nombre_sexo != value))
-				{
-					this.Onnombre_sexoChanging(value);
-					this.SendPropertyChanging();
-					this._nombre_sexo = value;
-					this.SendPropertyChanged("nombre_sexo");
-					this.Onnombre_sexoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexo_Usuario", Storage="_Usuarios", ThisKey="id_sexo", OtherKey="id_sexo")]
-		public EntitySet<Usuario> Usuarios
-		{
-			get
-			{
-				return this._Usuarios;
-			}
-			set
-			{
-				this._Usuarios.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Usuarios(Usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sexo = this;
-		}
-		
-		private void detach_Usuarios(Usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sexo = null;
 		}
 	}
 	
@@ -583,6 +469,120 @@ namespace ExamenNETP1.Controller
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sexo")]
+	public partial class Sexo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_sexo;
+		
+		private string _nombre_sexo;
+		
+		private EntitySet<Usuario> _Usuarios;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_sexoChanging(int value);
+    partial void Onid_sexoChanged();
+    partial void Onnombre_sexoChanging(string value);
+    partial void Onnombre_sexoChanged();
+    #endregion
+		
+		public Sexo()
+		{
+			this._Usuarios = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuarios), new Action<Usuario>(this.detach_Usuarios));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sexo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_sexo
+		{
+			get
+			{
+				return this._id_sexo;
+			}
+			set
+			{
+				if ((this._id_sexo != value))
+				{
+					this.Onid_sexoChanging(value);
+					this.SendPropertyChanging();
+					this._id_sexo = value;
+					this.SendPropertyChanged("id_sexo");
+					this.Onid_sexoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_sexo", DbType="VarChar(100)")]
+		public string nombre_sexo
+		{
+			get
+			{
+				return this._nombre_sexo;
+			}
+			set
+			{
+				if ((this._nombre_sexo != value))
+				{
+					this.Onnombre_sexoChanging(value);
+					this.SendPropertyChanging();
+					this._nombre_sexo = value;
+					this.SendPropertyChanged("nombre_sexo");
+					this.Onnombre_sexoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexo_Usuario", Storage="_Usuarios", ThisKey="id_sexo", OtherKey="id_sexo")]
+		public EntitySet<Usuario> Usuarios
+		{
+			get
+			{
+				return this._Usuarios;
+			}
+			set
+			{
+				this._Usuarios.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Usuarios(Usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexo = this;
+		}
+		
+		private void detach_Usuarios(Usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexo = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tipo_usuario")]
 	public partial class Tipo_usuario : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -719,9 +719,9 @@ namespace ExamenNETP1.Controller
 		
 		private EntityRef<Usuario> _Usuario;
 		
-		private EntityRef<Estado_Denuncia> _Estado_Denuncia;
-		
 		private EntityRef<Comuna> _Comuna;
+		
+		private EntityRef<Estado_Denuncia> _Estado_Denuncia;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -746,8 +746,8 @@ namespace ExamenNETP1.Controller
 		public Denuncia()
 		{
 			this._Usuario = default(EntityRef<Usuario>);
-			this._Estado_Denuncia = default(EntityRef<Estado_Denuncia>);
 			this._Comuna = default(EntityRef<Comuna>);
+			this._Estado_Denuncia = default(EntityRef<Estado_Denuncia>);
 			OnCreated();
 		}
 		
@@ -937,40 +937,6 @@ namespace ExamenNETP1.Controller
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Estado_Denuncia_Denuncia", Storage="_Estado_Denuncia", ThisKey="id_estado", OtherKey="id_estado", IsForeignKey=true)]
-		public Estado_Denuncia Estado_Denuncia
-		{
-			get
-			{
-				return this._Estado_Denuncia.Entity;
-			}
-			set
-			{
-				Estado_Denuncia previousValue = this._Estado_Denuncia.Entity;
-				if (((previousValue != value) 
-							|| (this._Estado_Denuncia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Estado_Denuncia.Entity = null;
-						previousValue.Denuncias.Remove(this);
-					}
-					this._Estado_Denuncia.Entity = value;
-					if ((value != null))
-					{
-						value.Denuncias.Add(this);
-						this._id_estado = value.id_estado;
-					}
-					else
-					{
-						this._id_estado = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Estado_Denuncia");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Comuna_Denuncia", Storage="_Comuna", ThisKey="id_comuna", OtherKey="id_comuna", IsForeignKey=true)]
 		public Comuna Comuna
 		{
@@ -1005,105 +971,37 @@ namespace ExamenNETP1.Controller
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Estado_Denuncia")]
-	public partial class Estado_Denuncia : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_estado;
-		
-		private string _nombre_estado;
-		
-		private EntitySet<Denuncia> _Denuncias;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_estadoChanging(int value);
-    partial void Onid_estadoChanged();
-    partial void Onnombre_estadoChanging(string value);
-    partial void Onnombre_estadoChanged();
-    #endregion
-		
-		public Estado_Denuncia()
-		{
-			this._Denuncias = new EntitySet<Denuncia>(new Action<Denuncia>(this.attach_Denuncias), new Action<Denuncia>(this.detach_Denuncias));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_estado", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_estado
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Estado_Denuncia_Denuncia", Storage="_Estado_Denuncia", ThisKey="id_estado", OtherKey="id_estado", IsForeignKey=true)]
+		public Estado_Denuncia Estado_Denuncia
 		{
 			get
 			{
-				return this._id_estado;
+				return this._Estado_Denuncia.Entity;
 			}
 			set
 			{
-				if ((this._id_estado != value))
+				Estado_Denuncia previousValue = this._Estado_Denuncia.Entity;
+				if (((previousValue != value) 
+							|| (this._Estado_Denuncia.HasLoadedOrAssignedValue == false)))
 				{
-					this.Onid_estadoChanging(value);
 					this.SendPropertyChanging();
-					this._id_estado = value;
-					this.SendPropertyChanged("id_estado");
-					this.Onid_estadoChanged();
+					if ((previousValue != null))
+					{
+						this._Estado_Denuncia.Entity = null;
+						previousValue.Denuncias.Remove(this);
+					}
+					this._Estado_Denuncia.Entity = value;
+					if ((value != null))
+					{
+						value.Denuncias.Add(this);
+						this._id_estado = value.id_estado;
+					}
+					else
+					{
+						this._id_estado = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Estado_Denuncia");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_estado", DbType="VarChar(100)")]
-		public string nombre_estado
-		{
-			get
-			{
-				return this._nombre_estado;
-			}
-			set
-			{
-				if ((this._nombre_estado != value))
-				{
-					this.Onnombre_estadoChanging(value);
-					this.SendPropertyChanging();
-					this._nombre_estado = value;
-					this.SendPropertyChanged("nombre_estado");
-					this.Onnombre_estadoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Estado_Denuncia_Denuncia", Storage="_Denuncias", ThisKey="id_estado", OtherKey="id_estado")]
-		public EntitySet<Denuncia> Denuncias
-		{
-			get
-			{
-				return this._Denuncias;
-			}
-			set
-			{
-				this._Denuncias.Assign(value);
 			}
 		}
 		
@@ -1125,18 +1023,6 @@ namespace ExamenNETP1.Controller
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Denuncias(Denuncia entity)
-		{
-			this.SendPropertyChanging();
-			entity.Estado_Denuncia = this;
-		}
-		
-		private void detach_Denuncias(Denuncia entity)
-		{
-			this.SendPropertyChanging();
-			entity.Estado_Denuncia = null;
 		}
 	}
 	
@@ -1251,6 +1137,120 @@ namespace ExamenNETP1.Controller
 		{
 			this.SendPropertyChanging();
 			entity.Comuna = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Estado_Denuncia")]
+	public partial class Estado_Denuncia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_estado;
+		
+		private string _nombre_estado;
+		
+		private EntitySet<Denuncia> _Denuncias;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_estadoChanging(int value);
+    partial void Onid_estadoChanged();
+    partial void Onnombre_estadoChanging(string value);
+    partial void Onnombre_estadoChanged();
+    #endregion
+		
+		public Estado_Denuncia()
+		{
+			this._Denuncias = new EntitySet<Denuncia>(new Action<Denuncia>(this.attach_Denuncias), new Action<Denuncia>(this.detach_Denuncias));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_estado", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_estado
+		{
+			get
+			{
+				return this._id_estado;
+			}
+			set
+			{
+				if ((this._id_estado != value))
+				{
+					this.Onid_estadoChanging(value);
+					this.SendPropertyChanging();
+					this._id_estado = value;
+					this.SendPropertyChanged("id_estado");
+					this.Onid_estadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_estado", DbType="VarChar(100)")]
+		public string nombre_estado
+		{
+			get
+			{
+				return this._nombre_estado;
+			}
+			set
+			{
+				if ((this._nombre_estado != value))
+				{
+					this.Onnombre_estadoChanging(value);
+					this.SendPropertyChanging();
+					this._nombre_estado = value;
+					this.SendPropertyChanged("nombre_estado");
+					this.Onnombre_estadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Estado_Denuncia_Denuncia", Storage="_Denuncias", ThisKey="id_estado", OtherKey="id_estado")]
+		public EntitySet<Denuncia> Denuncias
+		{
+			get
+			{
+				return this._Denuncias;
+			}
+			set
+			{
+				this._Denuncias.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Denuncias(Denuncia entity)
+		{
+			this.SendPropertyChanging();
+			entity.Estado_Denuncia = this;
+		}
+		
+		private void detach_Denuncias(Denuncia entity)
+		{
+			this.SendPropertyChanging();
+			entity.Estado_Denuncia = null;
 		}
 	}
 }

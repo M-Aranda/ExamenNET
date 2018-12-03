@@ -29,8 +29,12 @@
                 })
                 document.getElementById('correo').value = '';
                 document.getElementById('descripcion').value = '';
-                alert("Hecho");
-                alert("El numero de seguimiento es "+numSeg);
+                alert("Solicitud procesada");
+                if (cor === "" || cor == null) {
+                    alert("Debe ingresar un correo ya registrado.");
+                }
+
+             
         }
 
 
@@ -56,11 +60,11 @@
                listadoDeComunas.Add(c);
                //el numero de seguimiento se podria dar con sesiones y enviando el el correo a un handler
            }*/
-        int numeroDeSeguimiento = 0;
+        //int numeroDeSeguimiento = 0;
       /* hay un problema con este try catch try
         {*/
-            numeroDeSeguimiento = bd.Denuncias.Max(x => x.id_denuncia);
-            numeroDeSeguimiento += 1;
+            //numeroDeSeguimiento = bd.Denuncias.Max(x => x.id_denuncia);
+            //numeroDeSeguimiento += 1;
        /* }
         catch (Exception)
         {
@@ -70,7 +74,7 @@
 
         %>
 
-    <input type="hidden" id="num" name="num" value="<%=numeroDeSeguimiento%>"">
+  
     <select id="comuna" name="comuna">
     <%foreach (ExamenNETP1.Controller.Comuna com in listadoDeComunas)
         {%>
